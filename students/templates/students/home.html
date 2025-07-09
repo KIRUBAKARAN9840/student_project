@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="{% static 'students/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome {{ user.username }}</h2>
+    <a href="{% url 'logout' %}" class="logout">Logout</a>
+
+    <button id="addBtn">Add Student</button>
+
+    <!-- Add Student Popup -->
+    <div id="popupForm" class="popup">
+      <form id="studentForm">
+        {% csrf_token %}
+        <input type="hidden" id="studentId">
+        <input type="text" id="name" placeholder="Student Name" required>
+        <input type="text" id="subject" placeholder="Subject" required>
+        <input type="number" id="mark" placeholder="Mark" required>
+        <button type="submit" id="submitBtn">Save</button>
+        <button type="button" id="cancelBtn">Cancel</button>
+      </form>
+    </div>
+
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Subject</th>
+          <th>Mark</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="studentBody">
+        <!-- Filled by JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="{% static 'students/script.js' %}"></script>
+</body>
+</html>
