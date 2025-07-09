@@ -35,6 +35,7 @@ This is a Django-based web application that allows authenticated users to add, v
 ### 1. Clone the repository
 
 ```bash
+https://github.com/KIRUBAKARAN9840/student_project.git
 
 cd student_project
 
